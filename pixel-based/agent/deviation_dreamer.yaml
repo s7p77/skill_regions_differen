@@ -1,0 +1,24 @@
+# @package agent
+_target_: agent.deviation.DeviationAgent
+domain: ${domain}
+name: deviation_dreamer
+cfg: ???
+obs_space: ???
+act_spec: ???
+grad_heads: [decoder]
+reward_norm: {momentum: 0.95, scale: 1.0, eps: 1e-8}
+actor_ent: 0.1
+
+update_skill_every_step: 50
+
+skill_reward_norm: {momentum: 0.95, scale: 1.0, eps: 1e-8}
+skill_actor_ent: 0.1
+skill_dim: 16
+
+# extra hyperparameter
+weight: 1.5
+explor_rate: {"walker": 0.04, "quadruped": 0.04, "jaco": 2}
+latent_dim: 40
+temperature: 1
+
+num_init_frames: 4000
